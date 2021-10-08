@@ -29,12 +29,14 @@ class InputFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.button.setOnClickListener {
             val pin = binding.inputText.text.toString()
-            if(pin.toInt() in 100000..999999) {
+            var pattern = Regex("^[1-9][0-9]{5}\$")
+            var result = pattern.containsMatchIn(pin)
+            if(result){
                 viewModel.getTemperature(pin)
                 findNavController().navigate(R.id.action_inputFragment_to_outputFragment)
             }
-            else {
-                Toast.makeText(requireContext(),"Pin Code should be 6 digit only.",Toast.LENGTH_SHORT)
+            else{
+                Toast.makeText(context,"Please Enter a 6 Digit Valid Pincode",Toast.LENGTH_LONG).show()
             }
         }
     }
