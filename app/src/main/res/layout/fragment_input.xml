@@ -7,28 +7,31 @@
     android:background="@drawable/gradient_bg2"
     tools:context=".InputFragment">
 
-    <EditText
-        android:id="@+id/input_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:autofillHints="Please Enter Pincode"
-        android:hint="@string/please_enter_pin_code_here"
-        android:inputType="number"
-        android:minHeight="@dimen/fortyeight_dp"
-        android:textAlignment="center"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="20dp" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/twofiftysix_dp"
-        android:background="@drawable/oval_button"
-        android:text="@string/submit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/input_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:autofillHints="Please Enter Pincode"
+            android:hint="@string/please_enter_pin_code_here"
+            android:inputType="number"
+            android:minHeight="@dimen/fortyeight_dp"
+            android:textAlignment="center"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="20dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/twofiftysix_dp"
+            android:background="@drawable/oval_button"
+            android:text="@string/submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

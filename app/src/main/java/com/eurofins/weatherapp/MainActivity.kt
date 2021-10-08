@@ -28,10 +28,6 @@ class MainActivity : AppCompatActivity(), OutputFragment.iOnBackPressed {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
-        setupActionBarWithNavController(navController)
     }
 
     override fun onStart() {
@@ -57,9 +53,6 @@ class MainActivity : AppCompatActivity(), OutputFragment.iOnBackPressed {
     override fun mOnBackPressed() {
         onBackPressed()
     }
-
-
-
 
     private fun getPermission() {
         val navHostFragment =
@@ -95,7 +88,6 @@ class MainActivity : AppCompatActivity(), OutputFragment.iOnBackPressed {
             Log.d("Wagle", " Permission Granted")
         }
     }
-
     @SuppressLint("MissingPermission")
     private fun getLocation() {
         val navHostFragment =
@@ -110,7 +102,7 @@ class MainActivity : AppCompatActivity(), OutputFragment.iOnBackPressed {
                 navController.navigate(R.id.outputFragment)
             } else {
                 Toast.makeText(this,
-                    "We cannot fetch ur location due to some issue please enter ur pincode",
+                    "We cannot fetch your location due to some issue please enter your pincode",
                     Toast.LENGTH_SHORT).show()
                 Log.d("Wagle", "you are in get locations else block")
                 getPermissionForLoacation()

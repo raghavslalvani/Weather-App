@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -14,7 +15,6 @@ class InputFragment : Fragment() {
 
     private val viewModel: WeatherViewModel by activityViewModels()
     private lateinit var _binding: FragmentInputBinding
-
     private val binding get() = _binding
 
     override fun onCreateView(
@@ -25,13 +25,17 @@ class InputFragment : Fragment() {
         _binding = FragmentInputBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.button.setOnClickListener {
             val pin = binding.inputText.text.toString()
-            viewModel.getTemperature(pin)
-            findNavController().navigate(R.id.action_inputFragment_to_outputFragment)
+            if(pin.toInt() in 100000..999999) {
+                viewModel.getTemperature(pin)
+                findNavController().navigate(R.id.action_inputFragment_to_outputFragment)
+            }
+            else {
+                Toast.makeText(requireContext(),"Pin Code should be 6 digit only.",Toast.LENGTH_SHORT)
+            }
         }
     }
 }
