@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<RelativeLayout
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_bg"
+    android:fillViewport="true"
     tools:context="com.eurofins.weatherapp.OutputFragment">
 
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_bg">
 
         <ImageView
             android:id="@+id/search_button"
@@ -126,5 +125,5 @@
                 android:background="@drawable/round_button"
                 android:text="@string/display_daily_forecast" />
         </LinearLayout>
-
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
