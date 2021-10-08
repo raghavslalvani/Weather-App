@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Weather App</string>
+
+    <string name="submit">Submit</string>
+    <string name="description">Description</string>
+    <string name="cloud_cover">Cloud cover</string>
+    <string name="pressure">Pressure</string>
+    <string name="display_daily_forecast">Display Daily Forecast</string>
+    <string name="please_enter_pin_code_here">Please Enter pin code here</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="temperature">Temperature</string>
+    <string name="search_button">Search button</string>
+</resources>

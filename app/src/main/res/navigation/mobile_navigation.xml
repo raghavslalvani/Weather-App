@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/inputFragment">
+
+    <fragment
+        android:id="@+id/inputFragment"
+        android:name="com.eurofins.weatherapp.InputFragment"
+        android:label="Enter Pin"
+        tools:layout="@layout/fragment_input" >
+        <action
+            android:id="@+id/action_inputFragment_to_outputFragment"
+            app:destination="@id/outputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/outputFragment"
+        android:name="com.eurofins.weatherapp.OutputFragment"
+        android:label="Weather Info"
+        tools:layout="@layout/fragment_output">
+
+    <argument
+        android:name="weatherInfo"
+        app:argType="string"
+        android:defaultValue="Temp = 23"/>
+        <action
+            android:id="@+id/action_outputFragment_to_dailyForecastFragment"
+            app:destination="@id/dailyForecastFragment" />
+        <action
+            android:id="@+id/action_outputFragment_to_inputFragment"
+            app:destination="@id/inputFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/dailyForecastFragment"
+        android:name="com.eurofins.weatherapp.DailyForecastFragment"
+        android:label="Daily Forecast"
+        tools:layout="@layout/fragment_daily_forecast" />
+
+</navigation>
