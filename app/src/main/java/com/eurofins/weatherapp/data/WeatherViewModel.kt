@@ -26,9 +26,16 @@ class WeatherViewModel : ViewModel() {
     private var _pressure = MutableLiveData<String>()
     val pressure: LiveData<String> get() = _pressure
 
+    private var _buttonVisibility = MutableLiveData<Boolean>(false)
+    val buttonVisibility: MutableLiveData<Boolean> get() = _buttonVisibility
+
     private var _dataset: MutableList<DailyForecastList> =
-        mutableListOf(DailyForecastList(1633327200, 24.0f,
-            "rainy"))
+        mutableListOf(
+            DailyForecastList(
+                1633327200, 24.0f,
+                "rainy"
+            )
+        )
     val dataset get() = _dataset
 
     fun getTemperature(text: String) {
@@ -42,6 +49,10 @@ class WeatherViewModel : ViewModel() {
     fun getWeatherForecast(lat: Double, lon: Double) {
         _dataset.clear()
         getWeatherForecastDaily(lat, lon)
+    }
+
+    fun makeButtonInvincible(state: Boolean) {
+        _buttonVisibility.value = state
     }
 
     private fun getCurrentPlace(lat: Double, lon: Double) {
@@ -82,9 +93,13 @@ class WeatherViewModel : ViewModel() {
 
                 if (result != null) {
                     for (item in result.daily) {
-                        _dataset.add(DailyForecastList(item.dt,
-                            (item.temp.day - 273),
-                            item.weather[0].description))
+                        _dataset.add(
+                            DailyForecastList(
+                                item.dt,
+                                (item.temp.day - 273),
+                                item.weather[0].description
+                            )
+                        )
                     }
                 } else {
                     _temperatureAndPlace.value = "Incorrect Lat or lon"

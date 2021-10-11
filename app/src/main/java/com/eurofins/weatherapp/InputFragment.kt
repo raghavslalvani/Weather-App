@@ -25,18 +25,20 @@ class InputFragment : Fragment() {
         _binding = FragmentInputBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.button.setOnClickListener {
             val pin = binding.inputText.text.toString()
             var pattern = Regex("^[1-9][0-9]{5}\$")
             var result = pattern.containsMatchIn(pin)
-            if(result){
+            if (result) {
                 viewModel.getTemperature(pin)
+                viewModel.makeButtonInvincible(true)
                 findNavController().navigate(R.id.action_inputFragment_to_outputFragment)
-            }
-            else{
-                Toast.makeText(context,"Please Enter a 6 Digit Valid Pincode",Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(context, "Please Enter a 6 Digit Valid Pincode", Toast.LENGTH_LONG)
+                    .show()
             }
         }
     }

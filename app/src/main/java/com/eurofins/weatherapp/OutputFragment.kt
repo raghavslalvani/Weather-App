@@ -12,15 +12,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.eurofins.weatherapp.data.WeatherViewModel
 import com.eurofins.weatherapp.databinding.FragmentOutputBinding
-import java.lang.Exception
 
 
 class OutputFragment : Fragment() {
 
-    interface iOnBackPressed{
+    interface iOnBackPressed {
         fun mOnBackPressed()
     }
-    private lateinit var  backButton: iOnBackPressed
+
+    private lateinit var backButton: iOnBackPressed
 
     private val viewModel: WeatherViewModel by activityViewModels()
     private val safeArgs: OutputFragmentArgs by navArgs()
@@ -32,7 +32,7 @@ class OutputFragment : Fragment() {
 
         try {
             backButton = context as iOnBackPressed
-        }catch (e: Exception){
+        } catch (e: Exception) {
             Log.d("Wagle", "interface cannot be attached")
         }
     }
@@ -63,6 +63,14 @@ class OutputFragment : Fragment() {
             { newWord -> binding.cloudCover.text = newWord })
         viewModel.pressure.observe(viewLifecycleOwner,
             { newWord -> binding.pressure.text = newWord })
+        viewModel.buttonVisibility.observe(viewLifecycleOwner,
+            { it ->
+                if (it) {
+                    binding.nextScreen.setVisibility(View.GONE)
+                } else {
+                    binding.nextScreen.setVisibility(View.VISIBLE)
+                }
+            })
         binding.nextScreen.setOnClickListener {
             findNavController().navigate(R.id.action_outputFragment_to_dailyForecastFragment)
         }
