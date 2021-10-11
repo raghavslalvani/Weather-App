@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Weather Forecast is only available if location Service is enabled"
+        android:text="Weather Forecast is only available of your current location"
         android:textAlignment="center"
         android:textColor="#FF0000"
         android:textSize="20sp"

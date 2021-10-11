@@ -21,7 +21,6 @@ class OutputFragment : Fragment() {
     }
 
     private lateinit var backButton: iOnBackPressed
-
     private val viewModel: WeatherViewModel by activityViewModels()
     private val safeArgs: OutputFragmentArgs by navArgs()
     private lateinit var _binding: FragmentOutputBinding
